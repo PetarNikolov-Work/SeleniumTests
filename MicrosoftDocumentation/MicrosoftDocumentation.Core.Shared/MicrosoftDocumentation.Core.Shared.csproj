@@ -7,7 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\MicrosoftDocumentation.Core.Shared\MicrosoftDocumentation.Core.Shared.csproj" />
+    <Folder Include="Enums\" />
   </ItemGroup>
 
 </Project>
