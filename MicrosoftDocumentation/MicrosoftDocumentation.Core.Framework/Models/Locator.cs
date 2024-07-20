@@ -1,5 +1,6 @@
 ﻿namespace MicrosoftDocumentation.Core.Framework.Models
 {
+    using MicrosoftDocumentation.Core.Shared.Enums;
     using System;
     public sealed class Locator
     {
