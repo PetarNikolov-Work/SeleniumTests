@@ -2,8 +2,7 @@
 {
     public interface IWebPageNavigator
     {
+        string CurrentUrl { get; }
         void NavigateToPage(string pageUrl);
-
-        string CurrentUrl();
     }
 }

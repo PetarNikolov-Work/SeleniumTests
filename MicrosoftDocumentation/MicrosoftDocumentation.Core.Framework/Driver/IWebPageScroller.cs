@@ -1,7 +1,8 @@
 ﻿namespace MicrosoftDocumentation.Core.Framework.Driver
 {
-    public interface IWebPageScroller<T>
+    using MicrosoftDocumentation.Core.Framework.Elements;
+    public interface IWebPageScroller
     {
-        void ScrollPageToElement(string executableScript, T element);
+        void ScrollPageToElement(string executableScript, IWebPageElement element);
     }
 }
