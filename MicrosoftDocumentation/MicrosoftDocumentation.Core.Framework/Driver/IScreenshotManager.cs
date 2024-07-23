@@ -1,6 +1,6 @@
 ﻿namespace MicrosoftDocumentation.Core.Framework.Driver
 {
-    public interface IScreeenshotManager
+    public interface IScreenshotManager
     {
         void TakeScreenshotForFailedTest();
     }

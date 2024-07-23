@@ -5,9 +5,13 @@ VisualStudioVersion = 17.10.35027.167
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1.Core", "1.Core", "{2E35805E-C011-487A-976F-F092BE349AC6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MicrosoftDocumentation.Core.Framework", "MicrosoftDocumentation.Core.Framework\MicrosoftDocumentation.Core.Framework.csproj", "{85E01CDF-D5AD-48BB-80A1-F59EA3C6D420}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MicrosoftDocumentation.Core.Framework", "MicrosoftDocumentation.Core.Framework\MicrosoftDocumentation.Core.Framework.csproj", "{85E01CDF-D5AD-48BB-80A1-F59EA3C6D420}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MicrosoftDocumentation.Core.Shared", "MicrosoftDocumentation.Core.Shared\MicrosoftDocumentation.Core.Shared.csproj", "{DEBF937F-465D-4837-855B-CB4E305E98D7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MicrosoftDocumentation.Core.Shared", "MicrosoftDocumentation.Core.Shared\MicrosoftDocumentation.Core.Shared.csproj", "{DEBF937F-465D-4837-855B-CB4E305E98D7}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2.Selenium", "2.Selenium", "{DA258D96-96A3-49A8-968C-1CF7144BB3F5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MicrosoftDocumentation.Selenium.Implementation", "MicrosoftDocumentation.Selenium.Implementation\MicrosoftDocumentation.Selenium.Implementation.csproj", "{15C63380-7EA6-4F04-B66C-C261AB4E7651}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,6 +27,10 @@ Global
 		{DEBF937F-465D-4837-855B-CB4E305E98D7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DEBF937F-465D-4837-855B-CB4E305E98D7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DEBF937F-465D-4837-855B-CB4E305E98D7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{15C63380-7EA6-4F04-B66C-C261AB4E7651}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{15C63380-7EA6-4F04-B66C-C261AB4E7651}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{15C63380-7EA6-4F04-B66C-C261AB4E7651}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{15C63380-7EA6-4F04-B66C-C261AB4E7651}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -30,6 +38,7 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{85E01CDF-D5AD-48BB-80A1-F59EA3C6D420} = {2E35805E-C011-487A-976F-F092BE349AC6}
 		{DEBF937F-465D-4837-855B-CB4E305E98D7} = {2E35805E-C011-487A-976F-F092BE349AC6}
+		{15C63380-7EA6-4F04-B66C-C261AB4E7651} = {DA258D96-96A3-49A8-968C-1CF7144BB3F5}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {6EFA5636-155D-4124-A37D-AE6979E78D93}
