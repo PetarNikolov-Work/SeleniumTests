@@ -2,6 +2,7 @@
 {
     using MicrosoftDocumentation.Core.Framework.Driver;
     using OpenQA.Selenium;
+    using System.Xml.Linq;
 
     public class SeleniumWebPageNavigator : IWebPageNavigator
     {
@@ -24,7 +25,7 @@
         {
             if (string.IsNullOrEmpty(pageUrl) || string.IsNullOrWhiteSpace(pageUrl))
             {
-                throw new ArgumentException("The provided web page's URL can not be incorrect!");
+                throw new ArgumentException($"'{nameof(pageUrl)}' cannot be null, empty or whitespace!", nameof(pageUrl));
             }
 
             this.driver.Navigate().GoToUrl(pageUrl);
