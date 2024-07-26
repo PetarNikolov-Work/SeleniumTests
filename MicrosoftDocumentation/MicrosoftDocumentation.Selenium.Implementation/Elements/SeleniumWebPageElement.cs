@@ -50,5 +50,10 @@
 
             return element.GetAttribute(name);
         }
+
+        public static SeleniumWebPageElement Create(IWebElement element)
+        {
+            return new SeleniumWebPageElement(element);
+        }
     }
 }
