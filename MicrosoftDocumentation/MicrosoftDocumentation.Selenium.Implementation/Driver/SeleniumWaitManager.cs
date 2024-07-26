@@ -1,24 +1,30 @@
 ﻿namespace MicrosoftDocumentation.Selenium.Implementation.Driver
 {
+    using MicrosoftDocumentation.Selenium.Implementation.Driver.Abstractions;
     using MicrosoftDocumentation.Core.Framework.Driver;
     using MicrosoftDocumentation.Core.Shared.Enums;
     using OpenQA.Selenium;
     using OpenQA.Selenium.Support.UI;
 
-    public class SeleniumWaitManager : IWaitManager
+    public class SeleniumWaitManager : BaseSeleniumWebDriver, IWaitManager
     {
-        private readonly IWebDriver driver;
-        public SeleniumWaitManager(IWebDriver driver) 
+        private SeleniumWaitManager(IWebDriver driver) 
+            : base(driver)
         {
-            this.driver = driver ?? throw new ArgumentNullException(nameof(driver));
+            
         }
 
         public void WaitPage(WaitType seconds)
         {
-            WebDriverWait wait = new WebDriverWait(this.driver, TimeSpan.FromMilliseconds((double)seconds));
+            WebDriverWait wait = new WebDriverWait(base.Driver, TimeSpan.FromMilliseconds((double)seconds));
             DateTime now = DateTime.Now;
 
             wait.Until(wd => (DateTime.Now - now) - TimeSpan.FromMilliseconds((double)seconds) > TimeSpan.Zero);
+        }
+
+        public static SeleniumWaitManager Create(IWebDriver driver)
+        {
+            return new SeleniumWaitManager(driver);
         }
     }
 }

@@ -7,7 +7,7 @@
     {
         private readonly IWebElement element;
 
-        public SeleniumWebPageElement(IWebElement element)
+        private SeleniumWebPageElement(IWebElement element)
         {
              this.element = element ?? throw new ArgumentNullException(nameof(element));   
         }

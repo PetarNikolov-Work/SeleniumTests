@@ -1,22 +1,27 @@
 ﻿namespace MicrosoftDocumentation.Selenium.Implementation.Driver
 {
+    using MicrosoftDocumentation.Selenium.Implementation.Driver.Abstractions;
     using MicrosoftDocumentation.Core.Framework.Driver;
     using MicrosoftDocumentation.Core.Framework.Elements;
     using OpenQA.Selenium;
 
-    public class SeleniumWebPageScroller : IWebPageScroller
+    public class SeleniumWebPageScroller : BaseSeleniumWebDriver, IWebPageScroller
     {
-        private readonly IWebDriver driver;
-
-        public SeleniumWebPageScroller(IWebDriver driver)
+        private SeleniumWebPageScroller(IWebDriver driver)
+            : base(driver) 
         {
-            this.driver = driver ?? throw new ArgumentNullException(nameof(driver));
+            
         }
 
         public void ScrollPageToElement(string executableScript, IWebPageElement element)
         {
-            IJavaScriptExecutor jsExecutor = (IJavaScriptExecutor)this.driver;
+            IJavaScriptExecutor jsExecutor = (IJavaScriptExecutor)base.Driver;
             jsExecutor.ExecuteScript(executableScript, element);
+        }
+
+        public static SeleniumWebPageScroller Create(IWebDriver driver)
+        {
+            return new SeleniumWebPageScroller(driver);
         }
     }
 }

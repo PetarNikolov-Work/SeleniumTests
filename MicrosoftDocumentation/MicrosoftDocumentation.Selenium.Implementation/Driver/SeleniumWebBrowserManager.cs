@@ -1,25 +1,30 @@
 ﻿namespace MicrosoftDocumentation.Selenium.Implementation.Driver
 {
+    using MicrosoftDocumentation.Selenium.Implementation.Driver.Abstractions;
     using MicrosoftDocumentation.Core.Framework.Driver;
     using OpenQA.Selenium;
 
-    public class SeleniumWebBrowserManager : IWebBrowserManager
+    public class SeleniumWebBrowserManager : BaseSeleniumWebDriver, IWebBrowserManager
     {
-        private readonly IWebDriver driver;
-
-        public SeleniumWebBrowserManager(IWebDriver driver)
+        private SeleniumWebBrowserManager(IWebDriver driver)
+            : base(driver)
         {
-            this.driver = driver ?? throw new ArgumentNullException(nameof(driver));     
+            
         }
 
         public void ExpandToFullScreen()
         {
-            this.driver.Manage().Window.Maximize();
+            base.Driver.Manage().Window.Maximize();
         }
         public void QuitBrowser()
         {
-            this.driver.Quit();
-            this.driver.Dispose();
+            base.Driver.Quit();
+            base.Driver.Dispose();
+        }
+
+        public static SeleniumWebBrowserManager Create(IWebDriver driver)
+        {
+            return new SeleniumWebBrowserManager(driver);
         }
     }
 }

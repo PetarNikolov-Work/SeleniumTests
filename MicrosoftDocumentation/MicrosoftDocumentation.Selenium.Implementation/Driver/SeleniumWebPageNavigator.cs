@@ -1,23 +1,22 @@
 ﻿namespace MicrosoftDocumentation.Selenium.Implementation.Driver
 {
+    using MicrosoftDocumentation.Selenium.Implementation.Driver.Abstractions;
     using MicrosoftDocumentation.Core.Framework.Driver;
     using OpenQA.Selenium;
-    using System.Xml.Linq;
 
-    public class SeleniumWebPageNavigator : IWebPageNavigator
+    public class SeleniumWebPageNavigator : BaseSeleniumWebDriver, IWebPageNavigator
     {
-        private readonly IWebDriver driver;
-
-        public SeleniumWebPageNavigator(IWebDriver driver)
+        private SeleniumWebPageNavigator(IWebDriver driver)
+            : base(driver)
         {
-            this.driver = driver ?? throw new ArgumentNullException(nameof(driver));
+            
         }
 
         public string CurrentUrl
         {
             get
             {
-                return this.driver.Url;
+                return base.Driver.Url;
             }
         }
 
@@ -28,7 +27,12 @@
                 throw new ArgumentException($"'{nameof(pageUrl)}' cannot be null, empty or whitespace!", nameof(pageUrl));
             }
 
-            this.driver.Navigate().GoToUrl(pageUrl);
+            base.Driver.Navigate().GoToUrl(pageUrl);
+        }
+
+        public static SeleniumWebPageNavigator Create(IWebDriver driver)
+        {
+            return new SeleniumWebPageNavigator(driver);
         }
     }
 }

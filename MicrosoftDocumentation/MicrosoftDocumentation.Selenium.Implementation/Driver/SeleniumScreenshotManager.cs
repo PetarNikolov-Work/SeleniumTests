@@ -1,23 +1,24 @@
 ﻿namespace MicrosoftDocumentation.Selenium.Implementation.Driver
 {
+    using MicrosoftDocumentation.Selenium.Implementation.Driver.Abstractions;
     using MicrosoftDocumentation.Core.Framework.Driver;
     using NUnit.Framework.Interfaces;
     using NUnit.Framework;
     using OpenQA.Selenium;
 
-    public class SeleniumScreenshotManager : IScreenshotManager
+    public class SeleniumScreenshotManager : BaseSeleniumWebDriver, IScreenshotManager
     {
-        private readonly IWebDriver driver;
-        public SeleniumScreenshotManager(IWebDriver driver)
+        private SeleniumScreenshotManager(IWebDriver driver)
+            : base(driver)
         {
-            this.driver = driver ?? throw new ArgumentNullException(nameof(driver));
+            
         }
 
         public void TakeScreenshotForFailedTest()
         {
             if (TestContext.CurrentContext.Result.Outcome.Status == TestStatus.Failed)
             {
-                Screenshot screenshot = ((ITakesScreenshot)this.driver).GetScreenshot();
+                Screenshot screenshot = ((ITakesScreenshot)base.Driver).GetScreenshot();
                 string directoryPath = @"..\..\..\Screenshots\";
 
                 if (!System.IO.Directory.Exists(directoryPath))
@@ -29,6 +30,11 @@
 
                 screenshot.SaveAsFile(testFile);
             }
+        }
+
+        public static SeleniumScreenshotManager Create(IWebDriver driver)
+        {
+            return new SeleniumScreenshotManager(driver);   
         }
     }
 }
