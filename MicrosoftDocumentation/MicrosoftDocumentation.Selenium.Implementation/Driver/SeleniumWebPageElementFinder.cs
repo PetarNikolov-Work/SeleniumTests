@@ -1,7 +1,9 @@
-﻿namespace MicrosoftDocumentation.Selenium.Implementation.Elements
+﻿namespace MicrosoftDocumentation.Selenium.Implementation.Driver
 {
+    using MicrosoftDocumentation.Core.Framework.Driver;
     using MicrosoftDocumentation.Core.Framework.Elements;
     using MicrosoftDocumentation.Core.Framework.Models;
+    using MicrosoftDocumentation.Selenium.Implementation.Elements;
     using MicrosoftDocumentation.Selenium.Implementation.Utilities;
     using OpenQA.Selenium;
     using System;
